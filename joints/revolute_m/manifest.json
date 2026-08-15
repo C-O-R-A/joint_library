@@ -1,7 +1,6 @@
-
 {
-	"id": "revolute_m",
-	"type": "revolute",
+	"jid": "revolute_m",
+	"joint_type": "revolute",
 	"displayName": "Revolute Medium",
 	"description": "Medium size revolute joint",
 	"version": "1.0.0",
