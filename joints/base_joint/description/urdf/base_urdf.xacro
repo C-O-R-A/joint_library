@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Base joint macro: provides a mounting link and attachment points -->
+  <xacro:macro name="base_joint" params="prefix parent_connection input *origin">
+
+    <link name="${prefix}_base_link">
+      <inertial>
+        <origin xyz="0 0 0.053177" rpy="0 0 0" />
+        <mass value="1" />
+        <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0.0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="meshes/base_joint_visual.glb" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="meshes/base_joint_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Provide empty links for upstream/downstream joints to attach -->
+    <link name="${prefix}_joint_in" />
+    <link name="${prefix}_joint_out" />
+
+    <!-- Fixed connection from base to its output attachment -->
+    <joint name="${prefix}_base_to_out" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}_base_link" />
+      <child link="${prefix}_joint_out" />
+    </joint>
+
+    <!-- If the parent wants to connect into this base, create a fixed joint -->
+    <xacro:if value="${input == 'joint_in'}">
+      <joint name="${parent_connection}_to_${prefix}_joint" type="fixed">
+        <xacro:insert_block name="origin" />
+        <parent link="${parent_connection}" />
+        <child link="${prefix}_joint_in" />
+      </joint>
+    </xacro:if>
+
+    <xacro:if value="${input == 'joint_out'}">
+      <joint name="${prefix}_to_${parent_connection}_joint" type="fixed">
+        <xacro:insert_block name="origin" />
+        <parent link="${prefix}_joint_out" />
+        <child link="${parent_connection}" />
+      </joint>
+    </xacro:if>
+
+  </xacro:macro>
+</robot>

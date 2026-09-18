@@ -1,8 +1,8 @@
 {
-	"jid": "revolute_m",
+	"jid": "R105",
 	"joint_type": "revolute",
-	"displayName": "Revolute Medium",
-	"description": "Medium size revolute joint",
+	"displayName": "R105",
+	"description": "Revolute joint R105 (medium)",
 	"version": "1.0.0",
 	"specs": {
 		"mass": 1.0,
@@ -18,10 +18,10 @@
 		"axis": [0, 0, 1]
 	},
 	"mesh": {
-		"visual": "description/meshes/revolute_m_visual.glb",
-		"collision": "description/meshes/revolute_m_collision.stl"
+		"visual": "description/meshes/R105_visual.glb",
+		"collision": "description/meshes/R105_collision.stl"
 	},
-	"urdf": "urdf/revolute_m.xacro",
+	"urdf": "description/urdf/R105.urdf.xacro",
 	"connectors": [
 		{
 			"name": "joint_out",
@@ -37,7 +37,7 @@
 		}
 	],
 	"cad": {
-		"cad_folder":"Revolute_M"
+		"cad_folder":"R105"
 	},
 	"motor_interface": {
 		"max_motor_diameter": 50.0,
