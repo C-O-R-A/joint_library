@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(revolute_l_description)
+project(R120_description)
 
 find_package(ament_cmake REQUIRED)
 

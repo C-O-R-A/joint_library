@@ -1,0 +1,42 @@
+{
+  "jid": "base_joint",
+  "joint_type": "fixed",
+  "displayName": "Base Joint",
+  "description": "Base mounting joint (fixed)",
+  "version": "1.0.0",
+  "specs": {
+    "mass": 1.0,
+    "max_torque": 0,
+    "max_speed": 0
+  },
+  "parameters": {
+    "limits": {
+      "min": 0,
+      "max": 0
+    },
+    "reduction_ratio": 1.0,
+    "axis": [0, -1, 0]
+  },
+  "mesh": {
+    "visual": "description/meshes/base_joint_visual.glb",
+    "collision": "description/meshes/base_joint_collision.stl"
+  },
+  "urdf": "description/urdf/base_urdf.xacro",
+  "connectors": [
+    {
+      "name": "joint_out",
+      "origin": [0.0, 105.0, 0.0],
+      "axes": [[0.0, 0.0, -1.0], [1.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+      "type": "flange_input"
+    },
+    {
+      "name": "joint_in",
+      "origin": [0.0, 0.0, 0.0],
+      "axes": [[0.0, 0.0, 1.0], [-1.0, 0.0, 0.0], [0.0, -1.0, 0.0]],
+      "type": "flange_output"
+    }
+  ],
+  "cad": {
+    "cad_folder": "Base"
+  }
+}

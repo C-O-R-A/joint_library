@@ -1,8 +1,8 @@
 {
-  "id": "revolute_L",
+  "id": "R120",
   "type": "revolute",
-  "displayName": "Revolute Large",
-  "description": "Large size revolute joint",
+  "displayName": "R120",
+  "description": "Revolute joint R120 (large)",
   "version": "1.0.0",
   "specs": {
     "mass": 1.6,
@@ -18,8 +18,8 @@
   },
   "axis": [0, 0, 1],
   "mesh": {
-    "visual": "revolute_L_visual.gltf",
-    "collision": "revolute_L_collision.stl"
+    "visual": "R120_visual.gltf",
+    "collision": "R120_collision.stl"
   },
   "connectors": [
     {
@@ -34,7 +34,7 @@
     }
   ],
   "cad": {
-    "cad_folder":"Revolute_L"
+    "cad_folder":"R120"
   },
   "motor_interface": {
     "max_motor_diameter": 60,

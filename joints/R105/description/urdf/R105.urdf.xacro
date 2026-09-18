@@ -2,16 +2,16 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- <xacro:property name="joint_material" value="0.019608 0.32549 1 1" /> -->
 
-  <xacro:macro name="revolute_m" params="prefix parent_connection input *origin
+    <xacro:macro name="R105" params="prefix parent_connection input *origin
       mass='1.6'
       ixx='0.005898' ixy='0' ixz='0' iyy='0.003584' iyz='0.000096' izz='0.005765'
       effort='10' velocity='1' lower='-3.141593' upper='3.141593'">
       
       <!-- Actual joint geometry -->
-      <link name="${prefix}_revolute_m_link">
+      <link name="${prefix}_R105_link">
         <visual>
           <origin xyz="0 0 0" rpy="1.570796 0 0" />
-          <geometry><mesh filename="file://$(find revolute_m_description)/meshes/revolute_m_visual.glb" /></geometry>
+          <geometry><mesh filename="file://$(find R105_description)/meshes/R105_visual.glb" /></geometry>
           <!-- <material name="joint_material" /> -->
         </visual>
         <collision>
@@ -27,8 +27,8 @@
       </link>
 
       <joint name="${prefix}" type="revolute">
-        <origin xyz="0 -0.09873 0" rpy="1.570796 1.570796 0.0" />
-        <parent link="${prefix}_revolute_m_link" />
+        <origin xyz="0 0.09873 0" rpy="1.570796 1.570796 0.0" />
+        <parent link="${prefix}_R105_link" />
         <child link="${prefix}_joint_out" />
         <axis xyz="0 0 1" />
         <limit effort="${effort}" velocity="${velocity}" lower="${lower}" upper="${upper}" />
@@ -37,7 +37,7 @@
       <joint name="${prefix}_joint_in_joint" type="fixed">
         <origin xyz="0 0 0.06257" rpy="0 0 -1.570796" />
         <parent link="${prefix}_joint_in" />
-        <child link="${prefix}_revolute_m_link" />
+        <child link="${prefix}_R105_link" />
       </joint>
       
       <!-- Empty links to attach child joints to the input or output of this joint -->
